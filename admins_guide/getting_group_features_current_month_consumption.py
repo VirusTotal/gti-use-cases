@@ -38,7 +38,7 @@ def get_group_features_current_month_consumption(apikey, user_id):
     for key in keys:
         if not res['data'].get(key, {}).get('group', None):
             res['data'].pop(key)
-    sumary = (
+    summary = (
         f'\tSearches {res["data"]["intelligence_searches_monthly"]["group"]["used"]}'
         + f'/{res["data"]["intelligence_searches_monthly"]["group"]["allowed"]}\n'
         + f'\tDownloads {res["data"]["intelligence_downloads_monthly"]["group"]["used"]}'
@@ -54,7 +54,7 @@ def get_group_features_current_month_consumption(apikey, user_id):
         + f'\tPrivate scanning for URLs {res["data"]["private_urlscans_monthly"]["group"]["used"]}'
         + f'/{res["data"]["private_urlscans_monthly"]["group"]["allowed"]}\n'
     )
-    return sumary, res
+    return summary, res
 
 def main():
     parser = argparse.ArgumentParser(
